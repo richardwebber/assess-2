@@ -50,7 +50,9 @@ function getNameUsingDestructuring(person) {
 //     { firstName: 'Wyll', lastName: 'Ravengard', location: "Baldur's Gate" },
 //     { firstName: 'Astarion', lastName: 'Ancunin', location: "Baldur's Gate" }
 //   ];
-function getPeopleByLocation(people, location) {}
+const getPeopleByLocation = (people, location) => {
+  return people.filter(person => person.location === location)
+}
 
 // Translate a phrase to pirate talk.
 //
@@ -79,7 +81,16 @@ const EN_PIRATE_LOOKUP = {
   hello: 'ahoy',
 };
 
-function translateToPirateTalk(phrase) {}
+function translateToPirateTalk(phrase) {
+  
+  const words = phrase.split(' ');
+  
+  const pirateWords = words.map(word => EN_PIRATE_LOOKUP[word.toLowerCase()] || word)
+
+  const pirateText = pirateWords.join(' ');
+
+  return pirateText;
+}
 
 // Return the number of occurrences of each word in a string.
 // This function doesn't handle punctuation and is case-sensitive, so you can
@@ -88,7 +99,16 @@ function translateToPirateTalk(phrase) {}
 // Ex.:
 //   wordCount('hello world')
 //   => { hello: 1, world: 1 }
-function wordCount(str) {}
+function wordCount(str) {
+  let strArray = str.split(" ")
+  let words = {};
+  if (str.length === 0) {
+    return words;
+  } else {
+    strArray.map(n => words[n] = str.split(n).length - 1)
+  }
+  return words;
+}
 
 // Given an object representing a bug, return true if the given bug is
 // available in the given month.
@@ -110,7 +130,13 @@ function wordCount(str) {}
 //     }
 //   }, 1);
 //   => true
-function isBugAvailable(bug, month) {}
+function isBugAvailable(bug, month) {
+  let months = bug.availability.months;
+  if (months.includes(month)) {
+    return true;
+  }
+  return false;
+}
 
 // Given an array of objects representing bugs, return an object that'll be
 // used to build a calendar. The keys of the object should be the months of the
@@ -153,7 +179,23 @@ function isBugAvailable(bug, month) {}
 //     12: [],
 //   }
 
-function buildBugHuntCalendar(bugs) {}
+function buildBugHuntCalendar(bugs) {
+  const calendar = {};
+
+  bugs.forEach(bug => {
+      const { name, availability } = bug;
+      const { months } = availability;
+
+      months.forEach(month => {
+          if (!calendar[month]) {
+              calendar[month] = [];
+          }
+          calendar[month].push(name);
+      });
+  });
+
+  return calendar;
+}
 
 export {
   buildBugHuntCalendar,
