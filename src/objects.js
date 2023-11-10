@@ -13,7 +13,11 @@
 //     { firstName: 'Karlach', lastName: 'Cliffgate', location: 'Avernus' }
 //   ]);
 //   => ['Gale Dekarios', 'Wyll Ravengard', 'Karlach Cliffgate'];
-function getNames(people) {}
+
+//const getNames = myPeople.map(people => people.firstName + " " + people.lastName);
+function getNames(arr) {
+  return arr.map(({firstName, lastName}) => firstName + " " + lastName);
+} 
 
 // Given an object representing a person, return their full name (first name and last name).
 // You MUST use object destructuring in your solution.
@@ -24,7 +28,10 @@ function getNames(people) {}
 // Ex.:
 //   getName({ firstName: 'Gale', lastName: 'Dekarios', location: 'Waterdeep' });
 //   => 'Gale Dekarios'
-function getNameUsingDestructuring(person) {}
+function getNameUsingDestructuring(person) {
+  let {firstName, lastName} = person;
+  return firstName + " " + lastName;
+}
 
 // Given an array of objects representing people, return a new array of the
 // people matching the given location.
