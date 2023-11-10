@@ -1,0 +1,22 @@
+.div1 {
+    padding-bottom: 15px
+}
+
+table {
+    border: 1px solid white;
+    margin-top: 50px;
+}
+
+.square {
+    padding: 5px;
+}
+
+tr, td {
+    border: 1px solid white
+}
+
+body {
+    background: black;
+    font-family: sand-sefit;
+    color: white;
+}

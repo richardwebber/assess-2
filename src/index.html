@@ -7,5 +7,60 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
 
-  <body></body>
+  <body>
+    <div class="div1">
+      <label for="name">Charecter Name: </label>
+      <input type="text" id="name" />
+    </div>
+
+    <div class="div1">
+      <label for="jedi">Jedi</label>
+      <input type="radio" id="jedi"/>
+      <label for="sith">Sith</label>
+      <input type="radio" id="sith"/>
+    </div>
+
+    <div class="div1">
+      <label for="lightsaber">Lightsaber color: </label>
+      <select name="lightsaber" id="lightsaber-select">
+        <option value="blue" id="lightsabers">Blue</option>
+        <option value="green" id="lightsabers">Green</option>
+        <option value="red" id="lightsabers">Red</option>
+        <option value="purple" id="lightsabers">Purple</option>
+      </select>
+    </div>
+
+    <div class="">
+      <button type="submit">Submit</button>
+    </div>
+
+    <div>
+      <table>
+        <tr class="">
+          <td class="square" id="planet">Planet</td>
+          <td class="square" id="environment">Environment</td>
+          <td class="square" id="population">Population</td>
+        </tr>
+        <tr class="row">
+          <td class="square" id="square0">Tatooine</td>
+          <td class="square" id="square1">Desert</td>
+          <td class="square" id="square2">200,000</td>
+        </tr>
+        <tr class="row">
+          <td class="square" id="square3">Hoth</td>
+          <td class="square" id="square4">Ice</td>
+          <td class="square" id="square5">0</td>
+        </tr>
+        <tr class="row">
+          <td class="square" id="square6">Endor</td>
+          <td class="square" id="square7">Forest</td>
+          <td class="square" id="square8">30,000,000</td>
+        </tr>
+        <tr>
+        <td class="square" id="square7">Mustafar</td>
+        <td class="square" id="square8">Lava</td>
+        <td class="square" id="square9">10,000</td>
+      </table>
+    </div>
+  </body>
 </html>
