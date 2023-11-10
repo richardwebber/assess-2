@@ -1,4 +1,8 @@
-.div1 {
+* {
+    font-family: sans-serif;
+}
+
+.form1 {
     padding-bottom: 15px
 }
 
@@ -17,6 +21,5 @@ tr, td {
 
 body {
     background: black;
-    font-family: sand-sefit;
     color: white;
 }

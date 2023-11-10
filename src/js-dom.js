@@ -8,8 +8,12 @@
 // update and say "Log out". If a user clicks on the button again, its text
 // should switch from "Log Out" to "Log In".
 
-/// TODO: replace this with your code
+console.log('hello world')
 
+const logInButton = document.querySelector('.auth');
+
+
+/// TODO: replace this with your code
 
 // Send an alert
 //
@@ -17,6 +21,22 @@
 //
 // A user should be able to enter what they want the alert to say in the
 // text box. Then, they can submit the form to trigger the alert.
+
+let logInLogOut = 'Log in'
+
+let alertPrompt = prompt();
+alert(`${alertPrompt}`)
+
+const swap = (evt) => {
+    const target =  evt.target;
+    logInButton.innerText = logInLogOut;
+
+    if (logInLogOut === 'Log in') {
+        logInLogOut = 'Log out'
+    } else {
+        logInLogOut = 'Log in'
+    }
+}
 
 /// TODO: replace this with your code
 
