@@ -30,6 +30,7 @@ function getNames(arr) {
 //   => 'Gale Dekarios'
 function getNameUsingDestructuring(person) {
   let {firstName, lastName} = person;
+  
   return firstName + " " + lastName;
 }
 
@@ -82,11 +83,8 @@ const EN_PIRATE_LOOKUP = {
 };
 
 function translateToPirateTalk(phrase) {
-  
   const words = phrase.split(' ');
-  
   const pirateWords = words.map(word => EN_PIRATE_LOOKUP[word.toLowerCase()] || word)
-
   const pirateText = pirateWords.join(' ');
 
   return pirateText;
@@ -102,11 +100,13 @@ function translateToPirateTalk(phrase) {
 function wordCount(str) {
   let strArray = str.split(" ")
   let words = {};
+  
   if (str.length === 0) {
     return words;
   } else {
     strArray.map(n => words[n] = str.split(n).length - 1)
   }
+  
   return words;
 }
 
@@ -132,9 +132,11 @@ function wordCount(str) {
 //   => true
 function isBugAvailable(bug, month) {
   let months = bug.availability.months;
+  
   if (months.includes(month)) {
     return true;
   }
+  
   return false;
 }
 
@@ -193,7 +195,7 @@ function buildBugHuntCalendar(bugs) {
           calendar[month].push(name);
       });
   });
-
+  
   return calendar;
 }
 

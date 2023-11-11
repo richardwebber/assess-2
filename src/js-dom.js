@@ -10,7 +10,11 @@
 
 console.log('hello world')
 
-const logInButton = document.querySelector('.auth');
+
+const logInButton = document.querySelector('#auth');
+const userName = document.querySelectorAll('#username')
+const alertButton = document.querySelector('#send-alert')
+const itemAdder = document.querySelector('#item-adder')
 
 
 /// TODO: replace this with your code
@@ -24,19 +28,36 @@ const logInButton = document.querySelector('.auth');
 
 let logInLogOut = 'Log in'
 
-let alertPrompt = prompt();
-alert(`${alertPrompt}`)
+
 
 const swap = (evt) => {
     const target =  evt.target;
-    logInButton.innerText = logInLogOut;
+    target.innerText = logInLogOut;
+    console.log('it works')
 
     if (logInLogOut === 'Log in') {
         logInLogOut = 'Log out'
     } else {
         logInLogOut = 'Log in'
     }
+    logInButton.innerText = logInLogOut;
 }
+
+const sendAlert = (event) => {
+    event.preventDefault();
+    alert('Form submitted')
+ };
+
+ const addItem = () => {
+    let list = document.getElementById('list')
+    let newItem = document.createElement('li');
+    newItem.textContent = 'Item';
+    list.appendChild(newItem);
+ };
+
+logInButton.addEventListener('click', swap);
+alertButton.addEventListener('submit', sendAlert)
+itemAdder.addEventListener('dblclick', addItem)
 
 /// TODO: replace this with your code
 
