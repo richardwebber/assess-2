@@ -13,8 +13,8 @@ console.log('hello world')
 
 const logInButton = document.querySelector('#auth');
 const userName = document.querySelectorAll('#username')
-const alertButton = document.querySelector('#send-alert')
-const itemAdder = document.querySelector('#item-adder')
+const alertButton = document.querySelector('#send-alert');
+const itemAdder = document.querySelector('#item-adder');
 
 
 /// TODO: replace this with your code
@@ -27,8 +27,6 @@ const itemAdder = document.querySelector('#item-adder')
 // text box. Then, they can submit the form to trigger the alert.
 
 let logInLogOut = 'Log in'
-
-
 
 const swap = (evt) => {
     const target =  evt.target;
@@ -43,25 +41,15 @@ const swap = (evt) => {
     logInButton.innerText = logInLogOut;
 }
 
+
 const sendAlert = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     alert('Form submitted')
  };
 
- const addItem = () => {
-    let list = document.getElementById('list')
-    let newItem = document.createElement('li');
-    newItem.textContent = 'Item';
-    list.appendChild(newItem);
- };
+ 
 
-logInButton.addEventListener('click', swap);
-alertButton.addEventListener('submit', sendAlert)
-itemAdder.addEventListener('dblclick', addItem)
-
-/// TODO: replace this with your code
-
-// Add an item
+ // Add an item
 //
 // This is a pretty silly feature -- when a user clicks on the
 // button (the one that says "Double-ulick to add an item"), a new list
@@ -76,6 +64,19 @@ itemAdder.addEventListener('dblclick', addItem)
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
+ const addItem = () => {
+    let list = document.getElementById('list')
+    let newItem = document.createElement('li');
+    newItem.textContent = 'Item';
+    list.appendChild(newItem);
+ };
+
+
+
+logInButton.addEventListener('click', swap);
+alertButton.addEventListener('submit', sendAlert)
+itemAdder.addEventListener('dblclick', addItem)
+
 /// TODO: replace this with your code
 
 // Change colors
@@ -88,6 +89,24 @@ itemAdder.addEventListener('dblclick', addItem)
 // Stuff Blue" should make text blue.
 
 /// TODO: replace this with your code
+
+
+
+const turnRedButton = document.querySelector('#red');
+const turnBlueButton = document.querySelector('#blue');
+const colorElements = document.querySelectorAll('.changes-colors');
+
+const changeToRed = () => {
+    colorElements.forEach(element => element.style.color = 'red')
+}
+
+const changeToBlue = () => {
+    colorElements.forEach(element => element.style.color = 'blue')
+}
+
+turnRedButton.addEventListener('click', changeToRed);
+turnBlueButton.addEventListener('click', changeToBlue);
+
 
 // Calculate factorial
 //
