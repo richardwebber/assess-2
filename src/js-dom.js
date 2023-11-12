@@ -169,3 +169,21 @@ calculateButton.addEventListener('click', calculator)
 // change the color of the text to red..
 
 /// TODO: replace this with your code
+
+const wordForm = document.querySelector('#recommend-word');
+const wordInput = document.querySelector('#word');
+const feedback = document.querySelector('.form-feedback');
+
+const checkLengthOfWord = (event) => {
+    event.preventDefault();
+    let textLength = wordInput.value.trim().length;
+    
+    if (textLength >= 4) {
+        feedback.textContent = 'Thanks for your submission!';
+        feedback.style.color = 'green';
+      } else {
+        feedback.textContent = 'The word must be at least 4 characters long.';
+        feedback.style.color = 'red';
+      }
+}
+wordForm.addEventListener('submit', checkLengthOfWord)
