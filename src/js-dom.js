@@ -10,21 +10,10 @@
 
 console.log('hello world')
 
-
-const logInButton = document.querySelector('#auth');
-const userName = document.querySelectorAll('#username')
-const alertButton = document.querySelector('#send-alert');
-const itemAdder = document.querySelector('#item-adder');
-
-
 /// TODO: replace this with your code
 
-// Send an alert
-//
-// This form will send an alert to a user via the built-in alert function.
-//
-// A user should be able to enter what they want the alert to say in the
-// text box. Then, they can submit the form to trigger the alert.
+const logInButton = document.querySelector('#auth');
+
 
 let logInLogOut = 'Log in'
 
@@ -42,12 +31,24 @@ const swap = (evt) => {
 }
 
 
+logInButton.addEventListener('click', swap);
+// Send an alert
+//
+// This form will send an alert to a user via the built-in alert function.
+//
+// A user should be able to enter what they want the alert to say in the
+// text box. Then, they can submit the form to trigger the alert.
+
+const alertButton = document.querySelector('#send-alert');
+
+
 const sendAlert = (event) => {
     event.preventDefault()
     alert('Form submitted')
  };
 
  
+ alertButton.addEventListener('submit', sendAlert)
 
  // Add an item
 //
@@ -64,7 +65,10 @@ const sendAlert = (event) => {
 //     <li>Item</li>  <!-- This was added after double-clicking -->
 //   </ol>
 
- const addItem = () => {
+const itemAdder = document.querySelector('#item-adder');
+
+ 
+const addItem = () => {
     let list = document.getElementById('list')
     let newItem = document.createElement('li');
     newItem.textContent = 'Item';
@@ -72,10 +76,7 @@ const sendAlert = (event) => {
  };
 
 
-
-logInButton.addEventListener('click', swap);
-alertButton.addEventListener('submit', sendAlert)
-itemAdder.addEventListener('dblclick', addItem)
+ itemAdder.addEventListener('dblclick', addItem);
 
 /// TODO: replace this with your code
 
@@ -90,11 +91,10 @@ itemAdder.addEventListener('dblclick', addItem)
 
 /// TODO: replace this with your code
 
-
-
 const turnRedButton = document.querySelector('#red');
 const turnBlueButton = document.querySelector('#blue');
 const colorElements = document.querySelectorAll('.changes-colors');
+
 
 const changeToRed = () => {
     colorElements.forEach(element => element.style.color = 'red')
@@ -103,6 +103,7 @@ const changeToRed = () => {
 const changeToBlue = () => {
     colorElements.forEach(element => element.style.color = 'blue')
 }
+
 
 turnRedButton.addEventListener('click', changeToRed);
 turnBlueButton.addEventListener('click', changeToBlue);
@@ -125,7 +126,34 @@ turnBlueButton.addEventListener('click', changeToBlue);
 
 /// TODO: replace this with your code
 
-// Validate a form
+const numberInput = document.querySelector('#factorial-input');
+const calculateButton = document.querySelector('#calculate-button');
+const resultSpan = document.querySelector('#result');
+
+
+const calculateFactorial = (number) => {
+    if (number === 0 || number === 1) {
+      return 1;
+    } else {
+      return number * calculateFactorial(number - 1);
+    }
+  };
+
+const calculator = (event) => {
+    event.preventDefault();
+    let inputNumber = parseInt(numberInput.value, 10);
+    if (Number.isInteger(inputNumber) && inputNumber >= 0) {
+      let factorialResult = calculateFactorial(inputNumber);
+      resultSpan.innerText = factorialResult;
+    } else {
+      alert('Please enter a non-negative integer.');
+    }
+  }
+
+
+calculateButton.addEventListener('click', calculator)
+
+// validate form
 //
 // This form is used to collect word recommendations from users. However, it
 // only accepts words that are at least four characters long. Add code that
